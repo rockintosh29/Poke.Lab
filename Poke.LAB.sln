@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poke.LAB.Server", "Poke.LAB.Server\Poke.LAB.Server.csproj", "{CD528F8F-00BE-434B-8BD2-19F4E124FD11}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "poke.lab.client", "poke.lab.client\poke.lab.client.esproj", "{B4102BAE-F797-48FF-999D-0F35237131EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD528F8F-00BE-434B-8BD2-19F4E124FD11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD528F8F-00BE-434B-8BD2-19F4E124FD11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD528F8F-00BE-434B-8BD2-19F4E124FD11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD528F8F-00BE-434B-8BD2-19F4E124FD11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4102BAE-F797-48FF-999D-0F35237131EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4102BAE-F797-48FF-999D-0F35237131EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4102BAE-F797-48FF-999D-0F35237131EA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B4102BAE-F797-48FF-999D-0F35237131EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4102BAE-F797-48FF-999D-0F35237131EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4102BAE-F797-48FF-999D-0F35237131EA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A449153F-E73B-4665-BD00-78F7CB6AFE48}
+	EndGlobalSection
+EndGlobal
