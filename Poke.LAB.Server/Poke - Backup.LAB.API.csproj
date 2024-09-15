@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\poke.lab.client\poke.lab.ux.esproj">
+    <ProjectReference Include="..\poke.lab.client\poke.lab.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
