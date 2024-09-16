@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="coverlet.collector" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+		<PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
+		<PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\Poke.LAB.Core\Poke.LAB.Core.csproj" />
+    <ProjectReference Include="..\Poke.LAB.DAL\Poke.LAB.DAL.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Content Include="..\Poke.LAB.API\appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+</Project>

@@ -10,6 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\WeatherForecastController.cs" />
+    <Compile Remove="WeatherForecast.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="appsettings.Development.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>8.*-*</Version>
     </PackageReference>
@@ -20,6 +29,12 @@
     <ProjectReference Include="..\poke.lab.client\poke.lab.ux.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\Poke.LAB.Core\Poke.LAB.Core.csproj" />
+    <ProjectReference Include="..\Poke.LAB.DAL\Poke.LAB.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
