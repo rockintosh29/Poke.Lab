@@ -14,4 +14,8 @@ namespace Poke.LAB.Core.Models.Pokemon
         public long BaseExperience { get; set; }
         public long Order { get; set; }
     }
+    public class  NatureResult : BaseResult
+    {
+        public string? Name { get; set; }   
+    }
 }

@@ -20,4 +20,12 @@ namespace Poke.LAB.DAL.Models
         public long Order { get; set; }
         public bool IsDefault { get; set; }
     }
+
+    public class Nature : BaseModel
+    {
+        [Key]
+        public long NatureID { get; set; }
+        [Required]
+        public string? Name { get; set; }
+    }
 }
