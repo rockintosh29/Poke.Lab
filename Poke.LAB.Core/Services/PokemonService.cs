@@ -37,6 +37,15 @@ namespace Poke.LAB.Core.Services
                 };
             }
 
+            if (_context.Pokemon.Any(p => p.PokeAPI_ID == pokemon.id))
+            {
+                return new BaseResult
+                {
+                    Success = true,
+                    Message = $"Pokémon {pokemon.name} ya registrado en la BD."
+                };
+            }
+
             var newPokemon = new DAL.Models.Pokemon
             {
                 Name = pokemon.name,
