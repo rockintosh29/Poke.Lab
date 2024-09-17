@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Poke.LAB.DAL.Models;
+using Poke.LAB.DAL.Models.Pokemon;
 
 namespace Poke.LAB.DAL
 {
@@ -11,6 +11,7 @@ namespace Poke.LAB.DAL
         public DbSet<Pokemon> Pokemon { get; set; }
         public DbSet<PokemonSprites> PokemonSprites { get; set; }
         public DbSet<Nature> Nature { get; set; }
+        public DbSet<Ability> Ability { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,6 +36,12 @@ namespace Poke.LAB.DAL
             modelBuilder.Entity<Nature>()
                 .HasKey(k => k.NatureID);
             modelBuilder.Entity<Nature>()
+                .HasIndex(k => k.PokeAPI_ID);
+
+            //Habilidad
+            modelBuilder.Entity<Ability>()
+                .HasKey(k => k.AbilityID);
+            modelBuilder.Entity<Ability>()
                 .HasIndex(k => k.PokeAPI_ID);
         }
     }

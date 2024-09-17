@@ -4,11 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poke.LAB.PokeApi.Model
+namespace Poke.LAB.PokeApi.Model.Pokemon
 {
-    /// <summary>
-    /// /pokemon/{id or name}
-    /// </summary>
     public class PokemonByNameOrID : BaseResult
     {
         public int base_experience { get; set; }
@@ -17,7 +14,7 @@ namespace Poke.LAB.PokeApi.Model
         public bool is_default { get; set; }
         public string? name { get; set; }
         public int order { get; set; }
-        public int weight {get; set;}
+        public int weight { get; set; }
         public PokemonSprites? sprites { get; set; }
     }
 
@@ -25,15 +22,5 @@ namespace Poke.LAB.PokeApi.Model
     {
         public string? front_default { get; set; }
         public string? back_default { get; set; }
-    }
-
-    /// <summary>
-    /// /nature/{id or name}
-    /// </summary>
-    public class NatureByNameOrID : BaseResult
-    {
-        public int id { get; set; }
-        public string? name { get; set; }
-
     }
 }

@@ -1,6 +1,6 @@
-﻿using Poke.LAB.PokeApi.Model;
-using RestSharp;
+﻿using RestSharp;
 using Newtonsoft.Json;
+using Poke.LAB.PokeApi.Model.Pokemon;
 
 namespace Poke.LAB.PokeApi
 {
@@ -86,6 +86,49 @@ namespace Poke.LAB.PokeApi
             catch (Exception ex)
             {
                 return new NatureByNameOrID
+                {
+                    Success = false,
+                    Message = "Error interno al realizar la consulta.",
+                    ExceptionMessage = $"{ex.Message} - {ex.InnerException!.Message}"
+                };
+            }
+        }
+
+        public async static Task<AbilityByNameOrID> GetAbilitySimpleData(int abilityId)
+        {
+            await Task.CompletedTask;
+
+            try
+            {
+                var function = $"ability/{abilityId}";
+                var client = new RestClient(Const.POKEAPI);
+                var request = new RestRequest(function, Method.Get);
+                //Headers
+                request.AddHeader("Content-Type", "application/json");
+
+                RestResponse response = await client.ExecuteAsync(request);
+
+                if (response.IsSuccessful)
+                {
+                    AbilityByNameOrID result = JsonConvert.DeserializeObject<AbilityByNameOrID>(response.Content!)!;
+
+                    result.Success = true;
+                    result.Message = $"Habilidad con id {abilityId} consultada con éxito.";
+
+                    return result;
+                }
+                else
+                {
+                    return new AbilityByNameOrID
+                    {
+                        Success = false,
+                        Message = "Error externo al realizar la consulta."
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new AbilityByNameOrID
                 {
                     Success = false,
                     Message = "Error interno al realizar la consulta.",

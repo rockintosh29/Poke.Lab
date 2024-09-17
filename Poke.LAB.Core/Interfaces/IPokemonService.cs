@@ -14,5 +14,7 @@ namespace Poke.LAB.Core.Interfaces
         Task<PokemonResult> GetPokemonById(int pokemonId);
         Task<BaseResult> GetFromApiNatureToDbByIdOrName(int natureId);
         Task<NatureResult> GetNatureById(int natureId);
+        Task<BaseResult> GetFromApiAbilityToDbByIdOrName(int abilityId);
+        Task<AbilityResult> GetAbilityById(int abilityId);
     }
 }

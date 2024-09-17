@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poke.LAB.DAL.Models
+namespace Poke.LAB.DAL.Models.Pokemon
 {
     public class Pokemon : BaseModel
     {
         [Key]
-        public long PokemonID { get; set; } 
+        public long PokemonID { get; set; }
         public long PokeAPI_ID { get; set; }
         [Required]
         public string? Name { get; set; }
@@ -20,7 +20,7 @@ namespace Poke.LAB.DAL.Models
         public long Order { get; set; }
         public bool IsDefault { get; set; }
 
-        public PokemonSprites? Sprites { get; set; }    
+        public PokemonSprites? Sprites { get; set; }
     }
 
     public class PokemonSprites
@@ -30,16 +30,7 @@ namespace Poke.LAB.DAL.Models
         [Required]
         public long PokemonID { get; set; }
         public Pokemon? Pokemon { get; set; }
-        public string? Front { get; set; }   
+        public string? Front { get; set; }
         public string? Back { get; set; }
-    }
-
-    public class Nature : BaseModel
-    {
-        [Key]
-        public long NatureID { get; set; }
-        public long PokeAPI_ID { get; set; }
-        [Required]
-        public string? Name { get; set; }
     }
 }

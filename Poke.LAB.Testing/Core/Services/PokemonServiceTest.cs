@@ -34,6 +34,7 @@ namespace Poke.LAB.Testing.Core.Services
                 Console.WriteLine($"{JsonConvert.SerializeObject(result)}");
             }
         }
+
         [TestMethod]
         public async Task GetNatureByIdOrName()
         {
@@ -42,6 +43,21 @@ namespace Poke.LAB.Testing.Core.Services
             for (int i = 8; i <= 20; i++)
             {
                 var result = await _pokemonService.GetFromApiNatureToDbByIdOrName(i);
+                Assert.IsNotNull(result);
+
+
+                Console.WriteLine($"{JsonConvert.SerializeObject(result)}");
+            }
+        }
+
+        [TestMethod]
+        public async Task GetAbilityByIdOrName()
+        {
+            Console.WriteLine("Probando método GetAbilityByIdOrName");
+
+            for (int i = 8; i <= 20; i++)
+            {
+                var result = await _pokemonService.GetFromApiAbilityToDbByIdOrName(i);
                 Assert.IsNotNull(result);
 
 
