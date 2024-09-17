@@ -19,6 +19,19 @@ namespace Poke.LAB.DAL.Models
         public long Weight { get; set; }
         public long Order { get; set; }
         public bool IsDefault { get; set; }
+
+        public PokemonSprites? Sprites { get; set; }    
+    }
+
+    public class PokemonSprites
+    {
+        [Key]
+        public long PokeSpriteID { get; set; }
+        [Required]
+        public long PokemonID { get; set; }
+        public Pokemon? Pokemon { get; set; }
+        public string? Front { get; set; }   
+        public string? Back { get; set; }
     }
 
     public class Nature : BaseModel

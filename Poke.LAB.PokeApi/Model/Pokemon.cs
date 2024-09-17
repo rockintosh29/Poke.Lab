@@ -18,6 +18,13 @@ namespace Poke.LAB.PokeApi.Model
         public string? name { get; set; }
         public int order { get; set; }
         public int weight {get; set;}
+        public PokemonSprites? sprites { get; set; }
+    }
+
+    public class PokemonSprites
+    {
+        public string? front_default { get; set; }
+        public string? back_default { get; set; }
     }
 
     /// <summary>

@@ -9,7 +9,9 @@ namespace Poke.LAB.DAL
 
         //Propiedades del Context (Para usar en proyecto)
         public DbSet<Pokemon> Pokemon { get; set; }
+        public DbSet<PokemonSprites> PokemonSprites { get; set; }
         public DbSet<Nature> Nature { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,6 +22,14 @@ namespace Poke.LAB.DAL
                 .HasKey(k => k.PokemonID);
             modelBuilder.Entity<Pokemon>()
                 .HasIndex(k => k.PokeAPI_ID);
+            //PokemonSprites
+            modelBuilder.Entity<PokemonSprites>()
+                .HasKey(k => k.PokeSpriteID);
+            modelBuilder.Entity<PokemonSprites>()
+                .HasOne(p => p.Pokemon)
+                .WithOne(ps => ps.Sprites)
+                .HasForeignKey<PokemonSprites>(fk => fk.PokemonID);
+
 
             //Naturaleza
             modelBuilder.Entity<Nature>()

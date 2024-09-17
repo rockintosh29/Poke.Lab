@@ -56,8 +56,17 @@ namespace Poke.LAB.Core.Services
                 Order = pokemon.order,  
                 BaseExperience = pokemon.base_experience
             };
-
             _context.Pokemon.Add(newPokemon);
+            await _context.SaveChangesAsync();
+
+            var newPokemonSprites = new DAL.Models.PokemonSprites
+            {
+                PokemonID = newPokemon.PokemonID,
+                Front = pokemon.sprites.front_default,
+                Back = pokemon.sprites.back_default 
+            };
+            _context.PokemonSprites.Add(newPokemonSprites);
+            
             await _context.SaveChangesAsync();
 
             return new BaseResult
