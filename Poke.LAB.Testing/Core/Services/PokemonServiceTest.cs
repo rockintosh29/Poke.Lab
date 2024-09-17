@@ -21,40 +21,32 @@ namespace Poke.LAB.Testing.Core.Services
         }
 
         [TestMethod]
-        public async Task HolaMundo()
-        {
-            await Task.CompletedTask;
-            Console.WriteLine("Probando método HolaMundo");
-
-            Console.WriteLine("HolaMundo");
-        }
-
-        [TestMethod]
         public async Task GetPokemonByIdOrName()
         {
             Console.WriteLine("Probando método GetPokemonByIdOrName");
-            string pokemon = "gligar";
 
             for (int i = 1; i <= 10; i++)
             {
-                var result = await _pokemonService.GetFromApiPokemonToDbByIdOrName(i.ToString());
+                var result = await _pokemonService.GetFromApiPokemonToDbByIdOrName(i);
                 Assert.IsNotNull(result);
 
 
                 Console.WriteLine($"{JsonConvert.SerializeObject(result)}");
             }
         }
-
         [TestMethod]
-        public async Task ConsultPokemonInBD()
+        public async Task GetNatureByIdOrName()
         {
-            Console.WriteLine("Probando método ConsultPokemonInBD");
-            string pokemon = "pikachu";
+            Console.WriteLine("Probando método GetNatureByIdOrName");
 
-            var result = await _pokemonService.GetPokemonByName(pokemon);
-            Assert.IsNotNull(result);
+            for (int i = 1; i <= 10; i++)
+            {
+                var result = await _pokemonService.GetFromApiPokemonToDbByIdOrName(i);
+                Assert.IsNotNull(result);
 
-            Console.WriteLine($"{JsonConvert.SerializeObject(result)}");
+
+                Console.WriteLine($"{JsonConvert.SerializeObject(result)}");
+            }
         }
     }
 }

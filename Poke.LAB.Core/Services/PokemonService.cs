@@ -5,6 +5,7 @@ using Poke.LAB.DAL;
 using Poke.LAB.Core.Models;
 using Poke.LAB.PokeApi;
 using Poke.LAB.Core.Models.Pokemon;
+using Poke.LAB.DAL.Models;
 
 namespace Poke.LAB.Core.Services
 {
@@ -19,12 +20,13 @@ namespace Poke.LAB.Core.Services
             _context = context;
         }
 
-        public async Task<BaseResult> GetFromApiPokemonToDbByIdOrName(string pokemonName)
+        //Pokemon
+        public async Task<BaseResult> GetFromApiPokemonToDbByIdOrName(int pokemonId)
         {
             await Task.CompletedTask;
 
             //Consumir API
-            var pokemon = await ApiPokemonService.GetPokemonSimpleData(pokemonName);
+            var pokemon = await ApiPokemonService.GetPokemonSimpleData(pokemonId);
 
             if (!pokemon.Success)
             {
@@ -55,20 +57,12 @@ namespace Poke.LAB.Core.Services
                 Message = pokemon.Message,
             };
         }
-        /*
-        1.Recibir el nombre del pokemon que quiero consultar en mi BD. ***
-        1.1 Por medio de un parametro.
-        2.Hacer la consulta a la BD. ***
-        3.Hacer el mapeo de datos. ***
-        3.1 Definir modelo de salida (Result)
-        3.2 Mapear salida con consulta
-        4.Mostrar la información ****/
-        public async Task<PokemonResult> GetPokemonByName(string pokemonName)
+        public async Task<PokemonResult> GetPokemonById(int pokemonId)
         {
             await Task.CompletedTask;
 
             var consulta = await _context.Pokemon
-                .Where(p => p.Name == pokemonName)
+                .Where(p => p.PokeAPI_ID == pokemonId)
                 .FirstOrDefaultAsync();
 
             if (consulta == null)
@@ -93,5 +87,62 @@ namespace Poke.LAB.Core.Services
 
             return resultado;
         }
+        //Naturaleza
+        public async Task<BaseResult> GetFromApiNatureToDbByIdOrName(int natureId)
+        {
+            await Task.CompletedTask;
+            var nature = await ApiPokemonService.GetNatureSimpleData(natureId);
+
+            if (!nature.Success)
+            {
+                return new BaseResult
+                {
+                    Success = nature.Success,
+                    Message = nature.Message
+                };
+            }
+
+            var newNature = new DAL.Models.Nature
+            {
+                Name = nature.name,
+                NatureID = nature.id
+            };
+
+            _context.Nature.Add(newNature);
+            await _context.SaveChangesAsync();
+
+            return new BaseResult
+            {
+                Success = true,
+                Message = nature.Message
+            };
+        }
+        public async Task<NatureResult> GetNatureById(int natureId)
+        {
+            await Task.CompletedTask;
+
+            var consulta = await _context.Pokemon
+                .Where(p => p.PokeAPI_ID == natureId)
+                .FirstOrDefaultAsync();
+
+            if (consulta == null)
+            {
+                return new NatureResult
+                {
+                    Success = true,
+                    Message = "Naturaleza no encontrada en la BD."
+                };
+            }
+
+            var resultado = new NatureResult
+            {
+                Success = true,
+                Message = "",
+                Name = consulta.Name
+            };
+
+            return resultado;
+        }
+
     }
 }

@@ -10,7 +10,9 @@ namespace Poke.LAB.Core.Interfaces
 {
     public interface IPokemonService
     {
-        Task<BaseResult> GetFromApiPokemonToDbByIdOrName(string pokemonName);
-        Task<PokemonResult> GetPokemonByName(string pokemonName);
+        Task<BaseResult> GetFromApiPokemonToDbByIdOrName(int pokemonId);
+        Task<PokemonResult> GetPokemonById(int pokemonId);
+        Task<BaseResult> GetFromApiNatureToDbByIdOrName(int natureId);
+        Task<NatureResult> GetNatureById(int natureId);
     }
 }

@@ -25,6 +25,8 @@ namespace Poke.LAB.PokeApi.Model
     /// </summary>
     public class NatureByNameOrID : BaseResult
     {
+        public int id { get; set; }
+        public string? name { get; set; }
 
     }
 }
