@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Poke.LAB.Core.Models.Pokemon
 {
-    public class PokemonResult : BaseResult
+    public class NatureResult : BaseResult
     {
+        public long ID { get; set; }
         public string? Name { get; set; }
-        public long Weight { get; set; }
-        public long Height { get; set; }
-        public long BaseExperience { get; set; }
-        public long Order { get; set; }
     }
 }

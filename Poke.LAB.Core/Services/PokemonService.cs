@@ -102,10 +102,19 @@ namespace Poke.LAB.Core.Services
                 };
             }
 
+            if (_context.Nature.Any(n => n.PokeAPI_ID == nature.id))
+            {
+                return new BaseResult
+                {
+                    Success = true, 
+                    Message = $"Naturaleza {nature.name} ya registrada en la BD."
+                };
+            }
+
             var newNature = new DAL.Models.Nature
             {
                 Name = nature.name,
-                NatureID = nature.id
+                PokeAPI_ID = nature.id
             };
 
             _context.Nature.Add(newNature);
@@ -138,7 +147,8 @@ namespace Poke.LAB.Core.Services
             {
                 Success = true,
                 Message = "",
-                Name = consulta.Name
+                Name = consulta.Name,
+                ID = consulta.PokeAPI_ID
             };
 
             return resultado;

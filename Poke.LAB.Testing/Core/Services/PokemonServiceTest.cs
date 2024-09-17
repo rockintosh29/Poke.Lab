@@ -39,9 +39,9 @@ namespace Poke.LAB.Testing.Core.Services
         {
             Console.WriteLine("Probando método GetNatureByIdOrName");
 
-            for (int i = 1; i <= 10; i++)
+            for (int i = 8; i <= 20; i++)
             {
-                var result = await _pokemonService.GetFromApiPokemonToDbByIdOrName(i);
+                var result = await _pokemonService.GetFromApiNatureToDbByIdOrName(i);
                 Assert.IsNotNull(result);
 
 

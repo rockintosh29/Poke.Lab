@@ -57,7 +57,7 @@ namespace Poke.LAB.PokeApi
 
             try
             {
-                var function = $"pokemon/{natureId}";
+                var function = $"nature/{natureId}";
                 var client = new RestClient(Const.POKEAPI);
                 var request = new RestRequest(function, Method.Get);
                 //Headers

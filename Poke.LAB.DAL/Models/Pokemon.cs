@@ -25,6 +25,7 @@ namespace Poke.LAB.DAL.Models
     {
         [Key]
         public long NatureID { get; set; }
+        public long PokeAPI_ID { get; set; }
         [Required]
         public string? Name { get; set; }
     }

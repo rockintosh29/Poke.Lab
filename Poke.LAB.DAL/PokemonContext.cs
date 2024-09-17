@@ -24,9 +24,8 @@ namespace Poke.LAB.DAL
             //Naturaleza
             modelBuilder.Entity<Nature>()
                 .HasKey(k => k.NatureID);
-            modelBuilder.Entity<Pokemon>()
+            modelBuilder.Entity<Nature>()
                 .HasIndex(k => k.PokeAPI_ID);
-
         }
     }
     /*
