@@ -1,13 +1,13 @@
-﻿using Poke.LAB.PokeApi.Model;
-using RestSharp;
+﻿using RestSharp;
 using Newtonsoft.Json;
+using Poke.LAB.PokeApi.Model.Pokemon;
 
-namespace Poke.LAB.PokeApi
+namespace Poke.LAB.PokeApi.ApiServices
 {
     /// <summary>
-    /// Pokémon
+    /// Servicio de métodos de sección de Pokémon. https://pokeapi.co/docs/v2#pokemon-section
     /// </summary>
-    public class ApiPokemonService
+    public class PokemonService
     {
         public async static Task<PokemonByNameOrID> GetPokemonSimpleData(int pokemonId)
         {

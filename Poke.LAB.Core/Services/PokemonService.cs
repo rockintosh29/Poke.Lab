@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Poke.LAB.DAL;
 using Poke.LAB.Core.Models;
-using Poke.LAB.PokeApi;
 using Poke.LAB.Core.Models.Pokemon;
 using Poke.LAB.DAL.Models;
+using Poke.LAB.PokeApi.ApiServices;
 
 namespace Poke.LAB.Core.Services
 {
@@ -26,7 +26,7 @@ namespace Poke.LAB.Core.Services
             await Task.CompletedTask;
 
             //Consumir API
-            var pokemon = await ApiPokemonService.GetPokemonSimpleData(pokemonId);
+            var pokemon = await PokeApi.ApiServices.PokemonService.GetPokemonSimpleData(pokemonId);
 
             if (!pokemon.Success)
             {
@@ -109,7 +109,7 @@ namespace Poke.LAB.Core.Services
         public async Task<BaseResult> GetFromApiNatureToDbByIdOrName(int natureId)
         {
             await Task.CompletedTask;
-            var nature = await ApiPokemonService.GetNatureSimpleData(natureId);
+            var nature = await PokeApi.ApiServices.PokemonService.GetNatureSimpleData(natureId);
 
             if (!nature.Success)
             {
