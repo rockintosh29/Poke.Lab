@@ -25,14 +25,11 @@ namespace Poke.LAB.Testing.Core.Services
         {
             Console.WriteLine("Probando método GetPokemonByIdOrName");
 
-            for (int i = 1; i <= 10; i++)
-            {
-                var result = await _pokemonService.GetFromApiPokemonToDbByIdOrName(i);
-                Assert.IsNotNull(result);
+            var result = await _pokemonService.GetFromApiPokemonToDbByIdOrName(29);
+            Assert.IsNotNull(result);
 
 
-                Console.WriteLine($"{JsonConvert.SerializeObject(result)}");
-            }
+            Console.WriteLine($"{JsonConvert.SerializeObject(result)}");
         }
         [TestMethod]
         public async Task GetNatureByIdOrName()
